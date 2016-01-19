@@ -31,13 +31,13 @@ fi
 mkdir -p /data/$FTP_USER/incoming
 chown -R $FTP_USER:ftp /data/$FTP_USER
 
+echo "Host is: $HOST"
+
 cat <<EOF> /etc/vsftpd.conf
 dual_log_enable=YES
-xferlog_file=/var/log/vsftp.log
 xferlog_enable=YES
 xferlog_std_format=YES
 log_ftp_protocol=YES
-
 
 background=NO
 listen=YES
@@ -51,15 +51,15 @@ chroot_local_user=YES
 allow_writeable_chroot=yes
 
 pasv_address=$HOST
-pasv_addr_resolve=$RESOLVE_HOSTNAME
+pasv_addr_resolve=NO
 
 pasv_min_port=$PASV_MIN_PORT
 pasv_max_port=$PASV_MAX_PORT
 pasv_enable=YES
-pasv_promiscuous=NO
+pasv_promiscuous=YES
 
 port_enable=YES
-port_promiscuous=NO
+port_promiscuous=YES
 
 seccomp_sandbox=NO
 
