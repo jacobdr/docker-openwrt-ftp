@@ -33,6 +33,10 @@ chown -R $FTP_USER:ftp /data/$FTP_USER
 
 echo "Host is: $HOST"
 
+
+#pasv_address=$HOST
+#pasv_addr_resolve=NO
+
 cat <<EOF> /etc/vsftpd.conf
 dual_log_enable=YES
 xferlog_enable=YES
@@ -49,9 +53,6 @@ check_shell=NO
 session_support=NO
 chroot_local_user=YES
 allow_writeable_chroot=yes
-
-pasv_address=$HOST
-pasv_addr_resolve=NO
 
 pasv_min_port=$PASV_MIN_PORT
 pasv_max_port=$PASV_MAX_PORT
