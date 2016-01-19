@@ -3,7 +3,7 @@
 FROM mcreations/openwrt-x64
 MAINTAINER Kambiz Darabi <darabi@m-creations.net>
 
-ENV FTP_USER ftp
+ENV FTP_USER user
 ENV FTP_PASS changeit
 
 # the HOST var is necessary for passive mode, so the client knows

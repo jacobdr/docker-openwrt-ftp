@@ -32,11 +32,15 @@ mkdir -p /data/$FTP_USER/incoming
 chown -R $FTP_USER:ftp /data/$FTP_USER
 
 cat <<EOF> /etc/vsftpd.conf
+xferlog_enable=YES
+xferlog_std_format=YES
+log_ftp_protocol=YES
+
 
 background=NO
 listen=YES
 anonymous_enable=NO
-local_enable=YES
+local_enable=NO
 write_enable=YES
 local_umask=022
 check_shell=NO
